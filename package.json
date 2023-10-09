@@ -81,6 +81,25 @@
         "extends": [
             "plugin:@taiga-ui/experience/all",
             "plugin:@taiga-ui/experience/taiga-naming-convention"
+        ],
+        "overrides": [
+            {
+                "files": [
+                    "**/*.spec.ts"
+                ],
+                "plugins": [
+                    "jest"
+                ],
+                "extends": [
+                    "plugin:jest/recommended"
+                ],
+                "rules": {
+                    "jest/expect-expect": "off",
+                    "jest/no-disabled-tests": "off",
+                    "jest/no-done-callback": "off",
+                    "jest/no-test-prefixes": "off"
+                }
+            }
         ]
     },
     "stylelint": {
@@ -107,6 +126,7 @@
         "@angular/platform-server": "12.2.17",
         "@angular/router": "12.2.17",
         "core-js": "2.6.12",
+        "eslint-plugin-jest": "27.4.2",
         "parse5": "6.0.1",
         "rxjs": "6.6.7",
         "zone.js": "0.11.8"
@@ -119,9 +139,9 @@
         "@angular/compiler-cli": "12.2.17",
         "@angular/language-service": "12.2.17",
         "@commitlint/cli": "17.7.2",
-        "@nx/jest": "16.9.1",
-        "@nx/node": "16.9.1",
-        "@nx/workspace": "16.9.1",
+        "@nx/jest": "16.10.0",
+        "@nx/node": "16.10.0",
+        "@nx/workspace": "16.10.0",
         "@playwright/test": "1.38.1",
         "@taiga-ui/browserslist-config": "0.2.0",
         "@taiga-ui/commitlint-config": "0.2.1",
@@ -141,20 +161,20 @@
         "cspell": "7.3.7",
         "cypress": "13.3.0",
         "cypress-real-events": "1.10.3",
-        "eslint": "8.50.0",
+        "eslint": "8.51.0",
         "find-in-files": "0.5.0",
         "http-server": "0.13.0",
         "husky": "8.0.3",
         "kill-port": "2.0.1",
         "lint-staged": "13.3.0",
         "ng-packagr": "12.2.7",
-        "nx": "16.9.1",
+        "nx": "16.10.0",
         "nx-cloud": "16.4.0",
         "prettier": "3.0.3",
         "rollup": "2.79.1",
         "standard-version": "8.0.2",
         "stylelint": "15.10.3",
-        "ts-loader": "9.4.4",
+        "ts-loader": "9.5.0",
         "ts-mockito": "2.6.1",
         "ts-node": "10.9.1",
         "typescript": "4.3.5",
