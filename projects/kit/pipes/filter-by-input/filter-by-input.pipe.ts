@@ -1,4 +1,4 @@
-import {Inject, Pipe, PipeTransform} from '@angular/core';
+import {Inject, Optional, Pipe, PipeTransform} from '@angular/core';
 import {
     TUI_DEFAULT_MATCHER,
     TUI_DEFAULT_STRINGIFY,
@@ -7,8 +7,9 @@ import {
     TuiStringMatcher,
 } from '@taiga-ui/cdk';
 import {TUI_DATA_LIST_HOST, TuiDataListHost} from '@taiga-ui/core';
+import {TuiMultiSelectDirective} from '@taiga-ui/kit/components/multi-select';
 
-import {AbstractTuiFilterByInput, ArrayElement} from './filter-by-input.base';
+import {AbstractTuiFilterByInput, TuiArrayElement} from './filter-by-input.base';
 
 @Pipe({
     name: `tuiFilterByInput`,
@@ -23,11 +24,14 @@ export class TuiFilterByInputPipe
         protected readonly accessor: TuiFocusableElementAccessor,
         @Inject(TUI_DATA_LIST_HOST)
         private readonly host: TuiDataListHost<unknown>,
+        @Optional()
+        @Inject(TuiMultiSelectDirective)
+        protected readonly multiSelect: unknown,
     ) {
         super();
     }
 
-    transform<T>(items: T, matcher?: TuiStringMatcher<ArrayElement<T>>): T;
+    transform<T>(items: T, matcher?: TuiStringMatcher<TuiArrayElement<T>>): T;
     transform<T>(
         items: ReadonlyArray<readonly T[]> | readonly T[] | null,
         matcher: TuiStringMatcher<T> = TUI_DEFAULT_MATCHER,

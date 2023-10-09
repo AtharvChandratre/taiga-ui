@@ -7,14 +7,22 @@ import {
 } from '@taiga-ui/cdk';
 import {tuiIsFlat} from '@taiga-ui/kit/utils';
 
-export type ArrayElement<A> = A extends ReadonlyArray<infer T>
+export type TuiArrayElement<A> = A extends ReadonlyArray<infer T>
     ? A extends ReadonlyArray<ReadonlyArray<infer G>>
         ? G
         : T
     : never;
 
+/**
+ * @deprecated: use {@link TuiArrayElement}
+ * TODO: remove in v4.0
+ */
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export type ArrayElement<A> = TuiArrayElement<A>;
+
 export abstract class AbstractTuiFilterByInput {
     protected abstract readonly accessor: TuiFocusableElementAccessor;
+    protected abstract readonly multiSelect: unknown;
 
     protected get query(): string {
         return this.accessor.nativeFocusableElement
@@ -46,7 +54,7 @@ export abstract class AbstractTuiFilterByInput {
     ): readonly T[] {
         const match = this.getMatch(items, stringify, query);
 
-        return tuiIsPresent(match)
+        return tuiIsPresent(match) && !this.multiSelect
             ? items
             : items.filter(item => matcher(item, query, stringify));
     }
@@ -61,7 +69,7 @@ export abstract class AbstractTuiFilterByInput {
             tuiIsPresent(this.getMatch(item, stringify, query)),
         );
 
-        return tuiIsPresent(match)
+        return tuiIsPresent(match) && !this.multiSelect
             ? items
             : items.map(inner => this.filterFlat(inner, matcher, stringify, query));
     }
