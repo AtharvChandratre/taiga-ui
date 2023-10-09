@@ -1,7 +1,7 @@
 import {TuiDocumentationPagePO, tuiGoto} from '@demo-playwright/utils';
 import {expect, test} from '@playwright/test';
 
-test.describe(`PieChart`, () => {
+test.describe(`LineChart`, () => {
     test(`should not show hint`, async ({page}) => {
         await tuiGoto(page, `charts/line-chart`);
         const example = new TuiDocumentationPagePO(page).getExample(`#line`);
