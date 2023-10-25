@@ -146,6 +146,15 @@ export const ROUTES: Routes = [
             title: `Portals`,
         },
     },
+    {
+        path: `viewport`,
+        loadChildren: async () =>
+            (await import(`../customization/viewport/viewport.module`))
+                .ExampleTuiViewportModule,
+        data: {
+            title: `Viewport`,
+        },
+    },
     // COMPONENTS
     {
         path: `components/accordion`,
@@ -199,11 +208,44 @@ export const ROUTES: Routes = [
         },
     },
     {
+        path: `layout/title`,
+        loadChildren: async () =>
+            (await import(`../directives/title/title.module`)).ExampleTuiTitleModule,
+        data: {
+            title: `Title`,
+        },
+    },
+    {
         path: `experimental/avatar`,
         loadChildren: async () =>
             (await import(`../experimental/avatar/avatar.module`)).ExampleTuiAvatarModule,
         data: {
-            title: `Avatar`,
+            title: `Avatar `,
+        },
+    },
+    {
+        path: `experimental/checkbox`,
+        loadChildren: async () =>
+            (await import(`../experimental/checkbox/checkbox.module`))
+                .ExampleTuiCheckboxModule,
+        data: {
+            title: `Checkbox `,
+        },
+    },
+    {
+        path: `experimental/radio`,
+        loadChildren: async () =>
+            (await import(`../experimental/radio/radio.module`)).ExampleTuiRadioModule,
+        data: {
+            title: `Radio `,
+        },
+    },
+    {
+        path: `experimental/toggle`,
+        loadChildren: async () =>
+            (await import(`../experimental/toggle/toggle.module`)).ExampleTuiToggleModule,
+        data: {
+            title: `Toggle `,
         },
     },
     {
@@ -284,6 +326,15 @@ export const ROUTES: Routes = [
         },
     },
     {
+        path: `experimental/thumbnail-card`,
+        loadChildren: async () =>
+            (await import(`../experimental/thumbnail-card/thumbnail-card.module`))
+                .ExampleTuiThumbnailCardModule,
+        data: {
+            title: `ThumbnailCard `,
+        },
+    },
+    {
         path: `navigation/breadcrumbs`,
         loadChildren: async () =>
             (await import(`../components/breadcrumbs/breadcrumbs.module`))
@@ -319,12 +370,12 @@ export const ROUTES: Routes = [
         },
     },
     {
-        path: `components/card`,
+        path: `components/thumbnail-card`,
         loadChildren: async () =>
             (await import(`../components/thumbnail-card/thumbnail-card.module`))
                 .ExampleTuiThumbnailCardModule,
         data: {
-            title: `Card`,
+            title: `ThumbnailCard`,
         },
     },
     {

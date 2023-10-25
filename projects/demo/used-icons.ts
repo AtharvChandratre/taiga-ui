@@ -61,8 +61,8 @@ export const TUI_USED_ICONS = [
     `tuiIconUploadCloudLarge`,
     `tuiIconClockLarge`,
     `tuiIconEdit2Large`,
-    `tuiIconLockLarge`,
     `tuiIconUnlockLarge`,
+    `tuiIconLockLarge`,
     `tuiIconEye`,
     `tuiIconVolumeX`,
     `tuiIconVolume`,
@@ -71,8 +71,8 @@ export const TUI_USED_ICONS = [
     `tuiIconMapPinLarge`,
     `tuiIconMapPin`,
     `tuiIconDownload`,
-    `tuiIconEyeOffLarge`,
     `tuiIconEyeLarge`,
+    `tuiIconEyeOffLarge`,
     `tuiIconEdit2`,
     `tuiIconVideoLarge`,
     `tuiIconArrowUp`,
@@ -108,6 +108,7 @@ export const TUI_USED_ICONS = [
     `tuiIconSmileLarge`,
     `tuiIconThumbsUp`,
     `tuiIconThumbsDown`,
+    `tuiIconCloud`,
     `tuiIconDeleteLarge`,
     `tuiIconElectron`,
     `tuiIconElectronMono`,
@@ -138,4 +139,4 @@ export const TUI_USED_ICONS = [
     `tuiIconUndo`,
     `tuiIconPaperclipLarge`,
     `tuiIconTrashLarge`,
-];
+] as const;
